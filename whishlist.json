@@ -1,0 +1,47 @@
+{
+    "title": "WhisList",
+    "author": "Кузнецова Алика",
+    "description": "Нереально благодарна тем кто выбирает подарок основываясь на вишлисте. Цены могут быть не точными так как постоянно меняются. Сюда добавляю все свои желания (просто чтобы не забыть), в том числе то на что коплю себе сама, поэтому от цен не удивляйтесь) Если что-то есть в списке и зачеркнуто, значит что сейчас не нужно, но в последствии снова будет нужно.",
+    "categories": [
+      {
+        "name": "Сертификаты/Билеты",
+        "items": [
+          {
+            "name": "Подарочный сертификат в этот тир",
+            "price": "4000 руб",
+            "link": "https://www.tirspb.ru/"
+          }
+        ]
+      },
+      {
+        "name": "Гаджеты",
+        "items": [
+          {
+            "name": "1000 ГБ SSD M.2 накопитель Samsung",
+            "price": "10 999 руб.",
+            "link": "https://www.dns-shop.ru/product/60dd5734f76bed20/1000-gb-ssd-m2-nakopitel-samsung-970-evo-plus-mz-v7s1t0bw/"
+          },
+          {
+            "name": "Внешний накопитель LaCie Rugged Mini, USB 3.0, 4 TB, серый",
+            "price": "18 987 руб.",
+            "link": "https://market.yandex.ru/product--vneshnii-nakopitel-lacie-rugged-mini-usb-3-0-4-tb-seryi/7706876?sku=39609902"
+          },
+          {
+            "name": "iPhone 16 512GB",
+            "price": "",
+            "link": "https://pitergsm.ru/catalog/phones/iphone/iphone-16/nano-sim-esim/36330/"
+          }
+        ]
+      },
+      {
+        "name": "Еда",
+        "items": [
+          {
+            "name": "Торт Наполеон",
+            "price": ""
+          }
+        ]
+      }
+    ]
+  }
+  

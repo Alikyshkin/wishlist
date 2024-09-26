@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhisList</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      background-color: #f4f4f4;
+    }
+    h1, h2 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    .category {
+      margin-bottom: 30px;
+    }
+    .category h2 {
+      font-size: 1.8rem;
+      color: #333;
+    }
+    .wishlist-item {
+      margin-bottom: 10px;
+    }
+    .wishlist-item a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+    .wishlist-item span {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .anti-wishlist {
+      list-style-type: none;
+      padding: 0;
+    }
+    .anti-wishlist li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>WhisList</h1>
+  <p>Кузнецова Алика</p>
+  <p>Нереально благодарна тем кто выбирает подарок основываясь на вишлисте. Цены могут быть не точными так как постоянно меняются. Сюда добавляю все свои желания (просто чтобы не забыть), в том числе то на что коплю себе сама, поэтому от цен не удивляйтесь) Если что-то есть в списке и зачеркнуто, значит что сейчас не нужно, но в последствии снова будет нужно</p>
+
+  <div id="wishlist"></div>
+
+  <h2>Антижелания</h2>
+  <ul id="antiwishlist" class="anti-wishlist"></ul>
+
+  <script>
+    async function loadWishlist() {
+      const wishlistResponse = await fetch('whishlist.json');
+      const wishlist = await wishlistResponse.json();
+  
+      const wishlistDiv = document.getElementById('wishlist');
+  
+      wishlist.categories.forEach(category => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.classList.add('category');
+        categoryDiv.innerHTML = `<h2>${category.name}</h2>`;
+        
+        category.items.forEach(item => {
+          const itemDiv = document.createElement('div');
+          itemDiv.classList.add('wishlist-item');
+          let itemContent = '';
+  
+          if (item.link) {
+            itemContent += `<a href="${item.link}" target="_blank">${item.name}</a>`;
+          } else {
+            itemContent += `${item.name}`;
+          }
+  
+          if (item.price) {
+            itemContent += ` — <span>${item.price}</span>`;
+          }
+  
+          itemDiv.innerHTML = itemContent;
+          categoryDiv.appendChild(itemDiv);
+        });
+  
+        wishlistDiv.appendChild(categoryDiv);
+      });
+    }
+  
+    async function loadAntiWishlist() {
+      const antiWishlistResponse = await fetch('antiwhishlist.json');
+      const antiWishlist = await antiWishlistResponse.json();
+  
+      const antiWishlistUl = document.getElementById('antiwishlist');
+      antiWishlist.anti_wishlist.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        antiWishlistUl.appendChild(li);
+      });
+    }
+  
+    loadWishlist();
+    loadAntiWishlist();
+  </script>  
+</body>
+</html>
